@@ -10,7 +10,7 @@ Resource Allocation: Each VM is allocated 2 CPU cores and 4GB of RAM to ensure s
 Installation Method: Used a manual installation approach rather than "Easy Install" to prevent licensing and configuration errors during the Windows setup wizard.
 VMware Tools: Installed VMware Tools on both guest operating systems to enable clipboard sharing, smooth cursor movement, and optimized display drivers.
 
-![Prerequisite Check](images/Prerequisites.png)
+![Prerequisite Check](Images/Prerequisites.png)
 
 ### Networking & Connectivity
 Network Type: Configured both VMs to use NAT (Share with my Mac) to provide internet access while maintaining an isolated virtual network.
@@ -49,14 +49,14 @@ During the promotion process, a prerequisite check failed because **AD CS** was 
 
   ### The Problem
 The prerequisite check failed because a "Certificate Server" was already installed on the local machine.
-![ADCS Conflict Error](images/error-adcs.png)
+![ADCS Conflict Error](Images/error-adcs.png)
 
 ### The Resolution
 I utilized the "Remove Roles and Features Wizard" to uninstall the AD CS role. 
-![Removing ADCS](images/removing-adcs.png)
+![Removing ADCS](Images/removing-adcs.png)
 
 Once removed, the prerequisites check passed successfully, allowing the installation to proceed.
-![Success Check](images/success-check.png)
+![Success Check](Images/success-check.png)
 
 ---
 
@@ -67,15 +67,15 @@ The server was promoted from a standalone workgroup machine to a **Domain Contro
 * **Functional Level:** Set to **Windows Server 2016** to ensure a balance between modern features and legacy compatibility.
 * **DSRM Security:** Configured a secure Directory Services Restore Mode password for emergency database maintenance.
 
-![Domain Configuration](images/domain-config.png)
-![DSRM Password Setup](images/dsrm-password.png)
+![Domain Configuration](Images/domain-config.png)
+![DSRM Password Setup](Images/dsrm-password.png)
 
 ### Results
 Upon successful promotion and reboot, the server now authenticates users against the `MANAR` domain. 
 
 **Verification:** The login screen now displays `MANAR\Administrator`, confirming that the Active Directory database is active and managing local security.
 
-![Final Login Verification](images/success-login.png)
+![Final Login Verification](Images/success-login.png)
 
 ---
 
