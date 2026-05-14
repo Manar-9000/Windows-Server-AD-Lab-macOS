@@ -47,7 +47,7 @@ During the promotion process, a prerequisite check failed because **AD CS** was 
     2. Successfully passed the AD DS prerequisite check.
     3. Re-installation of AD CS is deferred until after the domain is established (as an Enterprise CA).
 
-  ### The Problem
+### The Problem
 The prerequisite check failed because a "Certificate Server" was already installed on the local machine.
 ![ADCS Conflict Error](Images/error-adcs.png)
 
