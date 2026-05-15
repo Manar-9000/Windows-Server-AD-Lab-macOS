@@ -83,3 +83,31 @@ Upon successful promotion and reboot, the server now authenticates users against
 * **The Domain Controller (This VM):** The central management office holding the keys and employee ledger.
 * **Member Servers (Future VMs):** Specialized worker servers (File, Web, SQL) that join the domain to follow the DC's rules.
 * **Users & Groups:** Logical objects created within the DC to manage human access to network resources.
+
+---
+
+## Phase 4: Client Integration & User Management
+The final stage of the lab involved moving from a single server setup to a functional client-server network.
+
+### Joining the Windows 11 Workstation
+To bring the Windows 11 machine into the domain, I manually configured its IPv4 DNS settings to point to the Domain Controller's IP (`192.168.211.10`). This allowed the client to resolve the `manar.local` name and successfully join the forest.
+
+![Joining the Domain](Images/join-domain.jpg)
+
+### User Administration
+In an enterprise environment, using the Domain Administrator account for daily tasks is a security risk. I utilized **Active Directory Users and Computers (ADUC)** to create a non-privileged "Standard User" for daily workstation access.
+
+* **User Created:** `MANAR\LabUser`
+* **Security Principle:** Applied the "Least Privilege" model by ensuring this account lacks local administrative rights on the workstation.
+
+![Creating Standard User](Images/creating-standard-user.png)
+
+---
+
+## Final Verification
+The lab was successfully verified by logging into the Windows 11 workstation using the newly created domain credentials. This confirms:
+1. **Network Connectivity:** Proper communication between the Guest VMs.
+2. **DNS Resolution:** The client successfully found the DC.
+3. **Authentication:** The Domain Controller successfully validated the user's identity.
+
+![User Login Verification](Images/Lab-user-verfication.jpg)
