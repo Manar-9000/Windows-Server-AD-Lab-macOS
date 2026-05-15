@@ -92,7 +92,7 @@ The final stage of the lab involved moving from a single server setup to a funct
 ### Joining the Windows 11 Workstation
 To bring the Windows 11 machine into the domain, I manually configured its IPv4 DNS settings to point to the Domain Controller's IP (`192.168.211.10`). This allowed the client to resolve the `manar.local` name and successfully join the forest.
 
-![Joining the Domain](Images/join-domain.jpg)
+![Joining the Domain](Images/join-domain.png)
 
 ### User Administration
 In an enterprise environment, using the Domain Administrator account for daily tasks is a security risk. I utilized **Active Directory Users and Computers (ADUC)** to create a non-privileged "Standard User" for daily workstation access.
@@ -110,4 +110,4 @@ The lab was successfully verified by logging into the Windows 11 workstation usi
 2. **DNS Resolution:** The client successfully found the DC.
 3. **Authentication:** The Domain Controller successfully validated the user's identity.
 
-![User Login Verification](Images/Lab-user-verfication.jpg)
+![User Login Verification](Images/Lab-user-verfication.png)
