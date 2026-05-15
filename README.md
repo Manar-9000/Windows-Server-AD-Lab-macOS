@@ -10,7 +10,6 @@ Resource Allocation: Each VM is allocated 2 CPU cores and 4GB of RAM to ensure s
 Installation Method: Used a manual installation approach rather than "Easy Install" to prevent licensing and configuration errors during the Windows setup wizard.
 VMware Tools: Installed VMware Tools on both guest operating systems to enable clipboard sharing, smooth cursor movement, and optimized display drivers.
 
-![Prerequisite Check](Images/Prerequisites.png)
 
 ### Networking & Connectivity
 Network Type: Configured both VMs to use NAT (Share with my Mac) to provide internet access while maintaining an isolated virtual network.
@@ -39,6 +38,8 @@ The goal was to install the core "brains" of the network. I selected:
 1. **AD DS (Active Directory Domain Services):** The central identity database.
 2. **DNS Server:** Essential for resolving domain names to IP addresses.
 3. **AD CS (Certificate Services):** Initially installed for digital identity management.
+
+![Prerequisite Check](Images/Prerequisites.png)
 
 ### Troubleshooting the "Order of Operations"
 During the promotion process, a prerequisite check failed because **AD CS** was installed as a "Standalone" authority before the domain existed.
@@ -87,7 +88,7 @@ Upon successful promotion and reboot, the server now authenticates users against
 ---
 
 ## Phase 4: Client Integration & User Management
-The final stage of the lab involved moving from a single server setup to a functional client-server network.
+This stage of the lab involved moving from a single server setup to a functional client-server network.
 
 ### Joining the Windows 11 Workstation
 To bring the Windows 11 machine into the domain, I manually configured its IPv4 DNS settings to point to the Domain Controller's IP (`192.168.211.10`). This allowed the client to resolve the `manar.local` name and successfully join the forest.
