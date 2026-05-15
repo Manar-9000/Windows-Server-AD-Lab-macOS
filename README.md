@@ -238,3 +238,32 @@ To verify deployment, I utilized the `gpupdate /force` command on the Windows 11
 ![Forcing Update](Images/Force-GPO.png)
 ![Final Verification](Images/GPO-Success.png)
 
+---
+
+## Phase 6: File Server & NTFS Security
+This phase demonstrates the management of network resources and the enforcement of data security policies by creating a centralized "Department Share."
+
+### Secure File Sharing Implementation
+1. **Directory Creation**: Created `C:\Company_Data` on the Windows Server 2022 instance.
+2. **Network Sharing**: Configured **Advanced Sharing** to make the folder visible over the network to the "Everyone" group with Read permissions.
+3. **NTFS Permissions**: Navigated to the **Security** tab to add `MANAR\LabUser`. To maintain data integrity, I granted only **Read & execute** permissions and explicitly ensured **Write** and **Modify** were unselected.
+
+![File Sharing Setup](Images/File-sharing.png)
+![Setting NTFS Permissions](Images/Setting-NFTS-Permissions.png)
+
+### Verification & Proof of Concept
+To test the security configuration, I accessed the share from the Windows 11 workstation using the path `\\192.168.211.10\Company_Data`.
+
+* **The Test**: Attempted to delete a file created by the Administrator.
+* **The Result**: Windows returned a **"Destination Folder Access Denied"** error, confirming that the security permissions correctly restricted the standard user from destroying company data.
+
+![Permission Denied Success](Images/Permission-denied.png)
+
+---
+
+## Technical Competencies
+* **Virtualization**: Management of Windows Server 2022 and Windows 11 guests on macOS.
+* **Identity Management**: AD DS Forest initialization and OU/Object structuring.
+* **Policy Automation**: Deployment and enforcement of Group Policy Objects (GPOs).
+* **Data Security**: Implementation of the "Least Privilege" model via NTFS and Network Share permissions.
+* **Network Administration**: Static IP configuration and DNS troubleshooting.
